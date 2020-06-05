@@ -8,7 +8,8 @@ import android.widget.SimpleAdapter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MyList2Activity extends ListActivity { //继承列表父类，整个页面是一个列表
+
+public class MyList2Activity extends ListActivity implements Runnable{ //继承列表父类，整个页面是一个列表
 
     Handler handler;
     private ArrayList<HashMap<String,String>>listItems;//声明数据项，存放文字、图片信息等
@@ -26,6 +27,13 @@ public class MyList2Activity extends ListActivity { //继承列表父类，整�
 
         initListView();//调用initListView方法
         this.setListAdapter(listItemAdapter);//应用适配器listItemAdapter
+
+        Thread t = new Thread(this);//t为子线程
+        t.start();
+
+
+
+
 
     }
 
@@ -56,8 +64,8 @@ public class MyList2Activity extends ListActivity { //继承列表父类，整�
     }
 
 
+    @Override
+    public void run() {
 
-
-
-
+    }
 }
